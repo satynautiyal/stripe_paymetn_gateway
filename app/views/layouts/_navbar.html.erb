@@ -1,0 +1,42 @@
+<ul>
+    <% if user_signed_in? %>
+        <li><div>Welcome <%= current_user.email %></div></li>
+        <li><div><%= button_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <% if current_user.role=="admin" %>
+            <li><div><%= button_to "User", user_index_path, method: :get %></li>
+        <% end %>
+    <% else %>
+        <li><div><%= button_to "Log in", new_user_session_path, method: :get %></li>
+        <li><div><%= button_to "Sign up", new_user_registration_path, method: :get %></li>
+    <% end %>
+</ul>
+<style>
+
+ ul {
+   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+ }
+ 
+ li {
+   float: left;
+ }
+ 
+ li div {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+ }
+ 
+ li a:hover {
+   background-color: #111;
+ }
+
+</style>

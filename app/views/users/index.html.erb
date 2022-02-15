@@ -1,0 +1,10 @@
+<% if @users !=nil %>
+    <% @users.each do |user| %>
+        <table>
+            <tr>
+                <td>Email: <%= user.email %></td>
+                <td>Role: <%= user.role %></td>
+            </tr>
+        </table>
+    <% end %>
+<% end %>
